@@ -3,7 +3,7 @@ import os
 import pytest
 from dotenv import load_dotenv
 
-from selene import Browser, Config
+from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -47,7 +47,7 @@ def set_browser(request):
         options=options
     )
 
-    browser = Browser(Config(driver))
+    browser.config.driver = driver
 
     browser.config.base_url = 'https://demoqa.com'
     browser.config.timeout = 20
